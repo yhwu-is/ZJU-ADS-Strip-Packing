@@ -5,6 +5,8 @@
 // #include "block.h"
 using namespace std;
 
+#define SETTING_BIN_WIDTH 20
+
 typedef pair<int, int> block;
 typedef vector<block>::iterator it_b;
 
@@ -26,18 +28,18 @@ int NF(vector<block> &backet) {
             width_left -= b->first;
             if(b->second > h_level) h_level = b->second;
 
-            cout << b->first << " ";
+            // cout << b->first << " ";
         } else {
             // Need to open new level
             h_b += h_level; // add height of this level to the result
             width_left = W_b - b->first;
-            cout << ": " << h_level << endl << b->first << " ";
+            // cout << ": " << h_level << endl << b->first << " ";
 
             h_level = b->second;
         }
     }
     h_b += h_level; // For the top level
-    cout << endl;
+    // cout << endl;
     return h_b;
 }
 
@@ -140,7 +142,8 @@ int BWF(vector<block> &backet) {
         h_b += h_level_open;
     return h_b;
 }
-
+#define _TEST_
+#ifndef _TEST_
 int main(void) {
     #ifndef SIMPLE_TEST
         freopen("in", "r", stdin);
@@ -170,3 +173,81 @@ int main(void) {
 
     return 0;
 }
+#else 
+#include <fstream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+#define FILE_NOT_OPEN 1
+#define FILE_NOT_CLOSE 2
+#define TIME ((double)(end-start)/CLOCKS_PER_SEC)
+#define TIME_BEGIN start=clock()
+#define TIME_END end=clock()
+
+void generate_data(int max_width, int max_height) {
+    ofstream out;
+    out.open("in", ios::out);
+    if(!out.is_open()) {
+        exit(FILE_NOT_OPEN);
+    }
+    out << W_b << " " << n << endl;
+    for(int i = 0; i < n; i++) {
+        out << rand() % max_width + 1 << " " << rand() % max_height + 1 << endl;
+    }
+
+    out.close();
+    if(out.is_open()) {
+        exit(FILE_NOT_CLOSE);
+    }
+}
+
+int main() {
+    srand(time(NULL));
+    time_t start;
+    time_t end;
+    // Reopen the stdin & stdout
+    freopen("in", "r", stdin);
+    freopen("out", "w", stdout);
+
+    vector<block> backet;
+
+    W_b = SETTING_BIN_WIDTH;
+
+    int test_n[] = {10, 50, 100, 500, 1000, 3000, 5000, 8000, 10000};
+    const int test_repeat = 5;
+
+    for(int test_n_i = 0; test_n_i < sizeof(test_n)/sizeof(int); test_n_i++) {
+        n = test_n[test_n_i];
+        for(int i = 0; i < test_repeat; i++) {
+            generate_data(SETTING_BIN_WIDTH, 10);
+            vector<block> backet;
+
+            // Input
+            cin >> W_b >> n;
+            for(int i = 0; i < n; i++) {
+                int w, h;
+                cin >> w >> h;
+                backet.push_back(block(w, h));
+            }
+            // cout << NF(backet) << " " << FF(backet) << " " << BWF(backet) << endl;
+            cout << n << " ";
+
+            TIME_BEGIN;
+            cout << NF(backet) << " ";
+            TIME_END;
+            cout << TIME << " ";
+
+            TIME_BEGIN;
+            cout << FF(backet) << " ";
+            TIME_END;
+            cout << TIME << " ";
+
+            TIME_BEGIN;
+            cout << BWF(backet) << " ";
+            TIME_END;
+            cout << TIME << endl;
+        }
+    }
+}
+#endif
