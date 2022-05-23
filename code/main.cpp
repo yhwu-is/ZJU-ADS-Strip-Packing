@@ -60,11 +60,65 @@ int FF(vector<block> &backet) {
                 // Insert this block into this level
                 w_level[i] -= width;
                 fit_closed = true;
+                // cout << i << endl;
                 break;
             }
         }
         if(fit_closed) {
             // This block fits one of closed level, no need to get open level
+            continue;
+        }
+        // Now we need to deal with the open level
+        if(width <= width_left_open) {
+            // This block can be inserted into this open level
+            width_left_open -= width;
+            if(height > h_level_open) h_level_open = height;
+        } else {
+            // Need to close the originally open level
+            h_level.push_back(h_level_open);
+            w_level.push_back(width_left_open);
+            cnt_level++;
+            h_b += h_level_open;
+            width_left_open = W_b - width;
+            h_level_open = height;
+        }
+    }
+    if(fit_closed) // The last one not inserted into closed level
+        h_b += h_level_open;
+    return h_b;
+}
+
+int BWF(vector<block> &backet) {
+    // It's changed based on FF that I copy most of the code of FF()
+    int cnt_level = 0;
+    vector<int> h_level; // height for each closed level 
+    vector<int> w_level; // width left for each closed level
+    int h_b = 0; // As the sum of h_level and ending open level
+    int h_level_open = 0;
+    int width_left_open = W_b;
+    bool fit_closed = false;
+    for(it_b b = backet.begin(); b != backet.end(); b++) {
+        fit_closed = false;
+        int width = b->first;
+        int height = b->second;
+        int W_left_min = W_b;
+        int idx_min = -1;
+        // search for closed levels
+        for(int i = 0; i < cnt_level; i++) {
+            if(width <= w_level[i] && height <= h_level[i]) {
+                // Fit this closed level
+                // Updated W_left_min & idx_min if the left width is less than other before
+                fit_closed = true;
+                if(w_level[i] < W_left_min) {
+                    idx_min = i;
+                    W_left_min = w_level[i];
+                }
+            }
+        }
+        if(fit_closed) {
+            // This block fits one of closed level, no need to get open level
+            w_level[idx_min] -= width;
+            // cout << idx_min << endl;
             continue;
         }
         // Now we need to deal with the open level
@@ -110,6 +164,9 @@ int main(void) {
 
     cout << FF(backet) << endl;
     cout << "FF Done" << endl;
+
+    cout << BWF(backet) << endl;
+    cout << "BWF Done" << endl;
 
     return 0;
 }
