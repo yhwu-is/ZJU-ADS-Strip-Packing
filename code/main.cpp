@@ -174,7 +174,7 @@ int main(void) {
     return 0;
 }
 #else 
-#include <fstream>
+
 #include <ctime>
 #include <cstdlib>
 using namespace std;
@@ -185,20 +185,10 @@ using namespace std;
 #define TIME_BEGIN start=clock()
 #define TIME_END end=clock()
 
-void generate_data(int max_width, int max_height) {
-    ofstream out;
-    out.open("in", ios::out);
-    if(!out.is_open()) {
-        exit(FILE_NOT_OPEN);
-    }
-    out << W_b << " " << n << endl;
+void generate_data(int max_width, int max_height, vector<block> &b) {
     for(int i = 0; i < n; i++) {
-        out << rand() % max_width + 1 << " " << rand() % max_height + 1 << endl;
-    }
-
-    out.close();
-    if(out.is_open()) {
-        exit(FILE_NOT_CLOSE);
+        // out << rand() % max_width + 1 << " " << rand() % max_height + 1 << endl;
+        b.push_back(block(rand()%max_width+1, rand()%max_height+1));
     }
 }
 
@@ -220,17 +210,11 @@ int main() {
     for(int test_n_i = 0; test_n_i < sizeof(test_n)/sizeof(int); test_n_i++) {
         n = test_n[test_n_i];
         for(int i = 0; i < test_repeat; i++) {
-            generate_data(SETTING_BIN_WIDTH, 10);
             vector<block> backet;
+            generate_data(SETTING_BIN_WIDTH, 10, backet);
 
-            // Input
-            cin >> W_b >> n;
-            for(int i = 0; i < n; i++) {
-                int w, h;
-                cin >> w >> h;
-                backet.push_back(block(w, h));
-            }
-            // cout << NF(backet) << " " << FF(backet) << " " << BWF(backet) << endl;
+            W_b = SETTING_BIN_WIDTH;
+
             cout << n << " ";
 
             TIME_BEGIN;
