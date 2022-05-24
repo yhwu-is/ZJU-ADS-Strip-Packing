@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.7.12)  23 MAY 2022 22:47
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/W32TeX) (preloaded format=xelatex 2021.7.12)  24 MAY 2022 11:50
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -703,14 +703,14 @@ LaTeX Font Info:    ... okay on input line 44.
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(51.21504pt, 495.07779pt, 51.21504pt)
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
 * v-part:(T,H,B)=(85.35826pt, 688.5567pt, 71.13188pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=495.07779pt
+* \textwidth=483.69687pt
 * \textheight=688.5567pt
-* \oddsidemargin=-21.05495pt
-* \evensidemargin=-21.05495pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
 * \topmargin=-23.91173pt
 * \headheight=12.0pt
 * \headsep=25.0pt
@@ -778,14 +778,6 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
  [1
 
 ]
-File: heap.png Graphic file (type bmp)
-<heap.png>
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Missing character: There is no ’ ("2019) in font ptmr8t!
-Missing character: There is no ’ ("2019) in font ptmr8t!
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -795,6 +787,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [1]
 Missing character: There is no ’ ("2019) in font ptmr8t!
+File: 1.png Graphic file (type bmp)
+<1.png>
+File: 2.png Graphic file (type bmp)
+<2.png>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+File: 2.png Graphic file (type bmp)
+<2.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -804,12 +808,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [2]
-Missing character: There is no ’ ("2019) in font ptmr8t!
-Missing character: There is no ’ ("2019) in font ptmr8t!
-Missing character: There is no ’ ("2019) in font ptmr8t!
-Missing character: There is no “ ("201C) in font ptmr8t!
-Missing character: There is no ” ("201D) in font ptmr8t!
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -818,6 +816,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [3]
+Missing character: There is no ’ ("2019) in font ptmr8t!
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -833,25 +836,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[5]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[6] (./P6G1.aux)
+[5] (./P6G1.aux)
 Package rerunfilecheck Info: File `P6G1.out' has not changed.
-(rerunfilecheck)             Checksum: 0D99985DC6863B6457E9760EEF5CE0B2;2296.
+(rerunfilecheck)             Checksum: AB02D9678A6217BBE02749151A8B1F8C;2010.
  ) 
 Here is how much of TeX's memory you used:
- 23750 strings out of 478866
+ 23754 strings out of 478866
  440712 string characters out of 5865579
- 943818 words of memory out of 5000000
- 43193 multiletter control sequences out of 15000+600000
- 442941 words of font info for 70 fonts, out of 8000000 for 9000
+ 939816 words of memory out of 5000000
+ 43196 multiletter control sequences out of 15000+600000
+ 439653 words of font info for 68 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 128i,21n,130p,477b,652s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,16n,130p,477b,536s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on P6G1.pdf (7 pages).
+Output written on P6G1.pdf (6 pages).
